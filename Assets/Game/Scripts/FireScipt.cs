@@ -10,10 +10,7 @@ public class FireScipt : MonoBehaviour, IFire
 
     public void Fire()
     {
-        var middleLine = transform.position;
-        middleLine.x += 0.1f;
-        Instantiate(shell, middleLine + posCorrections, transform.rotation);
-        middleLine.x -= 0.2f;
-        Instantiate(shell, middleLine+ posCorrections, transform.rotation);
+        var newObject = Instantiate(shell, transform.position + posCorrections, transform.rotation);
+        newObject.transform.Translate(Vector3.up * 0.1f);
     }
 }

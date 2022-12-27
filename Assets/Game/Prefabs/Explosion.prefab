@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3096150652003367215}
   - component: {fileID: 3096150652003367214}
   - component: {fileID: 3096150652003367209}
-  - component: {fileID: -7605005357457005361}
+  - component: {fileID: 6735954265751398918}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7605005357457005361
+--- !u!114 &6735954265751398918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

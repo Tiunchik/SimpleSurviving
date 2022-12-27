@@ -4,30 +4,32 @@ using UnityEngine;
 
 public class TowerRotation : MonoBehaviour
 {
-
     public Camera gameCamera;
-
     public GameObject tankHull;
-
     public float towerRotationSpeed = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    private float towerCounter = 0;
     void Update()
     {
-        // Нахождение катетов для расчёта тангенса, а в последствии и градусов угла. 
-        var direction = Input.mousePosition - gameCamera.WorldToScreenPoint(tankHull.transform.position);
-        // Нахождение тангенса угла и перевод его в градусы.
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        // Вращение объекта на полученное значение градусов. (-90 т.к. 2D)
-        var rotation = Quaternion.AngleAxis((angle - 90), Vector3.forward);
-        
-        transform.rotation = Quaternion.Lerp (transform.rotation, rotation, 10 * towerRotationSpeed * Time.deltaTime); 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            towerCounter += 1f;
+        }
+        else
+        {
+            towerCounter -= Time.deltaTime;
+        }
+        if (towerCounter < 0)
+        {
+            // Нахождение катетов для расчёта тангенса, а в последствии и градусов угла. 
+            var direction = Input.mousePosition - gameCamera.WorldToScreenPoint(tankHull.transform.position);
+            // Нахождение тангенса угла и перевод его в градусы.
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // Вращение объекта на полученное значение градусов. (-90 т.к. 2D)
+            var rotation = Quaternion.AngleAxis((angle - 90), Vector3.forward);
+            transform.rotation = Quaternion.Lerp (transform.rotation, rotation, 10 * towerRotationSpeed * Time.deltaTime); 
+        }
+
     }
 }
 

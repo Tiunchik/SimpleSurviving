@@ -13,24 +13,18 @@ public class ShellFly : MonoBehaviour
     void Start()
     {
         shellRB = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, 5);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.up * (power * Time.deltaTime));
-        StartCoroutine(deleteBullet());
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         Instantiate(boom, transform.position, transform.rotation);
-        Destroy(gameObject);
-    }
-
-    IEnumerator deleteBullet()
-    {
-        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 }
