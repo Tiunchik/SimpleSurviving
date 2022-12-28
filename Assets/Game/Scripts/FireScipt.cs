@@ -6,11 +6,11 @@ using UnityEngine;
 public class FireScipt : MonoBehaviour, IFire
 {
     public GameObject shell;
-    public Vector3 posCorrections = new Vector3();
+    public float posCorrections = 1;
 
     public void Fire()
     {
-        var newObject = Instantiate(shell, transform.position + posCorrections, transform.rotation);
-        newObject.transform.Translate(Vector3.up * 0.1f);
+        var newObject = Instantiate(shell, transform.position, transform.rotation);
+        newObject.transform.Translate(Vector3.up * posCorrections, Space.Self);
     }
 }
