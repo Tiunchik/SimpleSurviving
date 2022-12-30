@@ -15,10 +15,14 @@ public class TankControllScript : MonoBehaviour
     private float _verticalInput;
 
     private IFire fire;
+
+    private Collider2D tankCollider2D;
     // Start is called before the first frame update
     void Start()
     {
+        tankCollider2D = GetComponent<Collider2D>();
         fire = findFire();
+        fire?.AddToIgnore(tankCollider2D);
     }
 
     // Update is called once per frame
@@ -32,7 +36,7 @@ public class TankControllScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            fire.Fire();
+            fire?.Fire();
         }
     }
 

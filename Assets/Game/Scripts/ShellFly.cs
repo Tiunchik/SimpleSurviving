@@ -7,12 +7,10 @@ public class ShellFly : MonoBehaviour
 {
     public float power = 1;
     public GameObject boom;
-    private Rigidbody2D shellRB;
 
     // Start is called before the first frame update
     void Start()
     {
-        shellRB = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 5);
     }
 
