@@ -15,6 +15,7 @@ public class TankControllScript : MonoBehaviour
     private float _verticalInput;
 
     private IFire fire;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +27,11 @@ public class TankControllScript : MonoBehaviour
     {
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
-        
+
         transform.Rotate(Vector3.back * (Time.deltaTime * hullRotationSpeed * _horizontalInput));
         transform.Translate(Vector3.up * (Time.deltaTime * hullSpeed * _verticalInput));
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             fire.Fire();
         }
