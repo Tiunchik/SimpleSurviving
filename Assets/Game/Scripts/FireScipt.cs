@@ -13,6 +13,7 @@ public class FireScipt : MonoBehaviour, IFire
     public void Fire()
     {
         var createdShell = Instantiate(shell, transform.position, transform.rotation);
+        Debug.Log("FireScipt::Instantiate(shell)");
         var ignoreList = createdShell.GetComponentsInChildren<Collider2D>();
         foreach (var children in ignoreList)
         {
