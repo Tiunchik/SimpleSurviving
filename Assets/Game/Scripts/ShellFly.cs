@@ -11,6 +11,7 @@ public class ShellFly : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("ShellFly::START");
         Destroy(gameObject, 5);
     }
 
