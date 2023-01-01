@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3396946197197225464}
   - component: {fileID: 459159439106117438}
   - component: {fileID: 3719076785726163223}
-  - component: {fileID: 3289756299055672473}
   - component: {fileID: 8076496057174284158}
+  - component: {fileID: -2181326839220441486}
   m_Layer: 0
   m_Name: Light_Shell
   m_TagString: Untagged
@@ -103,7 +103,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0011297464, y: 0.0049544573}
   m_Size: {x: 0.11392617, y: 0.2615192}
   m_Direction: 0
---- !u!50 &3289756299055672473
+--- !u!114 &8076496057174284158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7776615654110620396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85135199bf928bf4b84c4eb7d6f466e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 10
+  boom: {fileID: 3096150652003367208, guid: 1948e15a15dadb64d8c203e705a43aa0, type: 3}
+--- !u!50 &-2181326839220441486
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -124,17 +138,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8076496057174284158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7776615654110620396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85135199bf928bf4b84c4eb7d6f466e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 10
-  boom: {fileID: 3096150652003367208, guid: 1948e15a15dadb64d8c203e705a43aa0, type: 3}
