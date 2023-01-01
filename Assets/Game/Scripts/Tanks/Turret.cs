@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerRotation : MonoBehaviour
+public class Turret : MonoBehaviour
 {
     public Camera gameCamera;
     public GameObject tankHull;
