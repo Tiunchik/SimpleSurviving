@@ -46,3 +46,10 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# IDEAs folders
+/.idea/
+/.vscode/
+
+# git settings
+/.git/
