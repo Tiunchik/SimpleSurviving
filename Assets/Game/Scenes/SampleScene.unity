@@ -908,9 +908,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1549036578}
   - component: {fileID: 1549036577}
-  - component: {fileID: 1549036579}
   - component: {fileID: 1549036582}
   - component: {fileID: 1549036583}
+  - component: {fileID: 1549036579}
+  - component: {fileID: 1549036584}
+  - component: {fileID: 1549036585}
   m_Layer: 0
   m_Name: Brown_Hull_01
   m_TagString: Player
@@ -1000,8 +1002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18377880d75f6ec4395df218f7b5e269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hullSpeed: 5
-  hullRotationSpeed: 60
 --- !u!50 &1549036582
 Rigidbody2D:
   serializedVersion: 4
@@ -1033,7 +1033,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.008731365, y: 0}
@@ -1049,6 +1049,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9837279, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &1549036584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549036576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3392a5ef641b466582f78628317b6293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1549036585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549036576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2873e44dbd2428e9b05d49b6edcac78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hullSpeed: 10
+  hullRotationSpeed: 100
 --- !u!1001 &1557100891
 PrefabInstance:
   m_ObjectHideFlags: 0

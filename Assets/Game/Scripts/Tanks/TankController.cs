@@ -4,42 +4,57 @@ using UnityEngine;
 
 namespace Game.Scripts
 {
-    public class TankController: MonoBehaviour, ITankController
+    public class TankController : MonoBehaviour, ITankController
     {
-        
-        private IFire _fire;
-        private Collider2D _tankCollider2D;
-        private Hull _hull;
-        private Turret _turret;
+
+        private TreeComponentStore tcs = new();
+        private BoxCollider2D tankCollider2D{get => tcs.Get<BoxCollider2D>();}
+        private Hull hull {get => tcs.Get<Hull>();}
+        private Turret turret{get => tcs.Get<Turret>();}
+        private IFire fire{get => tcs.Get<IFire>();}
 
         private void Start()
         {
-            _tankCollider2D = GetComponent<Collider2D>();
-            _fire = Utils.findComponentInTree<IFire>(this);
-            _fire?.AddToIgnore(_tankCollider2D);
-            _hull = GetComponent<Hull>();
+            Debug.Log("TankController:Start() # RUN");
+
+            tcs.Start(this.gameObject);
+
+            // tankCollider2D = tcs.Get<BoxCollider2D>();
+            // turret = tcs.Get<Turret>();
+            // fire = tcs.Get<IFire>();
+            // hull = tcs.Get<Hull>();
+            fire.AddToIgnore(tankCollider2D);
+
+
+            // _tankCollider2D = GetComponent<Collider2D>();
+            // _hull = GetComponent<Hull>();
+            // _turret =  Utils.findComponentInTree<Turret>(this);
+            // _fire = Utils.findComponentInTree<IFire>(this);
+            // _fire?.AddToIgnore(_tankCollider2D);
+
+            Debug.Log("TankController:Start() # END");
         }
 
         public void Forward(float input)
         {
-            transform.Translate(Vector3.up * (Time.deltaTime * _hull.HullSpeed * input));
+            transform.Translate(Vector3.up * (Time.deltaTime * hull.HullSpeed * input));
         }
 
         public void RotateHull(float input)
         {
-            transform.Rotate(Vector3.back * (Time.deltaTime * _hull.HullRotationSpeed * input));
+            transform.Rotate(Vector3.back * (Time.deltaTime * hull.HullRotationSpeed * input));
         }
 
         public void RotateTurret(float input)
         {
-            
+
         }
 
         public void Fire()
         {
-            _fire.Fire();
+            fire.Fire();
         }
-        
-        
+
+
     }
 }
