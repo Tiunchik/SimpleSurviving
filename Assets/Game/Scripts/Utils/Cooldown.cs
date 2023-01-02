@@ -1,30 +1,33 @@
 // TimerDown  15 sec -> 0 sec
 // after creat - isEnd = true 
-public class Cooldown
+namespace Game.Scripts.Utils
 {
-    public bool IsEnd { get { return PastTime >= _s; } }
-    public bool IsRun { get { return PastTime <= _s; } }
-    public float PastTime { set; get; }
-    private float _s;
-    public float S
+    public class Cooldown
     {
-        get => _s;
-        set
+        public bool IsEnd { get { return PastTime >= _s; } }
+        public bool IsRun { get { return PastTime <= _s; } }
+        public float PastTime { set; get; }
+        private float _s;
+        public float S
         {
-            _s = value;
-            PastTime = value;
+            get => _s;
+            set
+            {
+                _s = value;
+                PastTime = value;
+            }
         }
+        // return value in range(0, 101+)
+        public float ProgressPercent { get { return (PastTime / _s) * 100; } }
+        // return value in range(100, -0)
+        public float ProgressPercentInvert { get { return 100 - ProgressPercent; } }
+
+
+        public void Update(float deltaTime)
+        {
+            if (PastTime <= _s) PastTime += deltaTime;
+        }
+
+        public void Run() => PastTime = 0;
     }
-    // return value in range(0, 101+)
-    public float ProgressPercent { get { return (PastTime / _s) * 100; } }
-    // return value in range(100, -0)
-    public float ProgressPercentInvert { get { return 100 - ProgressPercent; } }
-
-
-    public void Update(float deltaTime)
-    {
-        if (PastTime <= _s) PastTime += deltaTime;
-    }
-
-    public void Run() => PastTime = 0;
 }

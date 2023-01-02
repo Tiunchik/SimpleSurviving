@@ -1,12 +1,12 @@
-﻿using System;
-using UnityEditor;
+﻿using Game.Scripts.Tanks.Fire;
+using Game.Scripts.Tanks.Turret;
 using UnityEngine;
 
-namespace Game.Scripts
+namespace Game.Scripts.Tanks
 {
     public class TankController : MonoBehaviour, ITankController
     {
-
+        
         private TreeComponentStore tcs = new();
         private BoxCollider2D tankCollider2D{get => tcs.Get<BoxCollider2D>();}
         private Hull hull {get => tcs.Get<Hull>();}
@@ -47,7 +47,7 @@ namespace Game.Scripts
 
         public void RotateTurret(float input)
         {
-
+            turret.Rotate(input);
         }
 
         public void Fire()
