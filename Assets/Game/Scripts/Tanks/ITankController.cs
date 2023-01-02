@@ -1,4 +1,6 @@
-﻿namespace Game.Scripts
+﻿using UnityEngine;
+
+namespace Game.Scripts.Tanks
 {
     public interface ITankController
     {
