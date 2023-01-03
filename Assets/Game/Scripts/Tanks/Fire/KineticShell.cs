@@ -1,16 +1,17 @@
+using Game.Scripts.Enums;
 using UnityEngine;
 
 namespace Game.Scripts.Tanks.Fire
 {
-    public class ShellFly : MonoBehaviour
+    public class KineticShell : MonoBehaviour
     {
-        public float power = 1;
+        public int power = 1;
         public GameObject boom;
 
+        private DamageType _damageType = DamageType.KINETIC;
         // Start is called before the first frame update
         void Start()
         {
-            Debug.Log("ShellFly::START");
             Destroy(gameObject, 5);
         }
 
@@ -22,6 +23,10 @@ namespace Game.Scripts.Tanks.Fire
 
         private void OnCollisionEnter2D(Collision2D col)
         {
+            if (col.gameObject.TryGetComponent(out IDamageable damage))
+            {
+                damage.TakeDamage(power, _damageType);
+            }
             Instantiate(boom, transform.position, transform.rotation);
             Destroy(gameObject);
         }
