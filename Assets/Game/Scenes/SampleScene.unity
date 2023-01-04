@@ -468,6 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6478f9cd8eddd584a83dc4b8365845b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopScreen: {fileID: 0}
 --- !u!4 &239929367
 Transform:
   m_ObjectHideFlags: 0
@@ -849,8 +850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0055a418168e74d87a0c8b12080a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shell: {fileID: 7776615654110620396, guid: 7332bb7515a4c3d49ad244d6079469a2, type: 3}
-  posCorrections: 0.45
+  shell: {fileID: 0}
+  posCorrections: 1
 --- !u!1 &574866483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,8 +1528,8 @@ GameObject:
   - component: {fileID: 1549036583}
   - component: {fileID: 1549036586}
   - component: {fileID: 1549036585}
-  - component: {fileID: 1549036584}
   - component: {fileID: 1549036587}
+  - component: {fileID: 1549036588}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -1653,21 +1654,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9837279, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &1549036584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549036576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2873e44dbd2428e9b05d49b6edcac78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hullSpeed: 10
-  hullRotationSpeed: 100
-  turretPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1549036585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1706,6 +1692,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   destroyAnimation: {fileID: 1032948697324899670, guid: fc55ab868d7f54548ad100a9a4158ff2, type: 3}
+--- !u!114 &1549036588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549036576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b98ed4c34a764e963e89411610ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1557100891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1861,7 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shell: {fileID: 6427546505957280926, guid: 9e74f9258bb9b9d43b148fc81264a5cb, type: 3}
-  posCorrections: 0.45
+  posCorrections: 1
 --- !u!4 &2123693559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8940411395508183313, guid: f11e3d9210a71b74eb9d7ecdc6618125, type: 3}
@@ -1881,8 +1880,8 @@ GameObject:
   - component: {fileID: 2145895506}
   - component: {fileID: 2145895509}
   - component: {fileID: 2145895508}
-  - component: {fileID: 2145895507}
   - component: {fileID: 2145895510}
+  - component: {fileID: 2145895511}
   m_Layer: 0
   m_Name: EnemyTank
   m_TagString: Untagged
@@ -2007,21 +2006,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2145895507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145895501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2873e44dbd2428e9b05d49b6edcac78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hullSpeed: 10
-  hullRotationSpeed: 100
-  turretPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2145895508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,3 +2044,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   destroyAnimation: {fileID: 1032948697324899670, guid: fc55ab868d7f54548ad100a9a4158ff2, type: 3}
+--- !u!114 &2145895511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145895501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17b98ed4c34a764e963e89411610ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretPosition: {x: 0, y: 0, z: 0}

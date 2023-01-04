@@ -1,21 +1,20 @@
-using Game.Scripts.Enums;
+using Game.Scripts.Tanks.Damages;
 using UnityEngine;
 
-namespace Game.Scripts.Tanks.Fire
+namespace Game.Scripts.Tanks.Ammo
 {
-    public class KineticShell : MonoBehaviour
+    public class KineticShellBehavior : MonoBehaviour
     {
         public int power = 1;
         public GameObject boom;
+        public DamageType damageType = DamageType.KINETIC;
 
-        private DamageType _damageType = DamageType.KINETIC;
-        // Start is called before the first frame update
+
         void Start()
         {
             Destroy(gameObject, 5);
         }
 
-        // Update is called once per frame
         void Update()
         {
             transform.Translate(Vector3.up * (power * Time.deltaTime));
@@ -25,7 +24,7 @@ namespace Game.Scripts.Tanks.Fire
         {
             if (col.gameObject.TryGetComponent(out IDamageable damage))
             {
-                damage.TakeDamage(power, _damageType);
+                damage.TakeDamage(power, damageType);
             }
             Instantiate(boom, transform.position, transform.rotation);
             Destroy(gameObject);

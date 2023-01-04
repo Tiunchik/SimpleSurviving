@@ -1,14 +1,13 @@
-using Game.Scripts.Enums;
 using UnityEngine;
 
-namespace Game.Scripts.Tanks.Fire
+namespace Game.Scripts.Tanks.Ammo
 {
-    public class SimpleFire : MonoBehaviour, IFire
+    public class KineticFireable : MonoBehaviour, IFireable
     {
         public GameObject shell;
         public float posCorrections = 1;
     
-        private Collider2D tankCollider2D;
+        private Collider2D ignoreCreatorTankCollider;
 
         public void Fire()
         {
@@ -16,14 +15,14 @@ namespace Game.Scripts.Tanks.Fire
             var ignoreList = createdShell.GetComponentsInChildren<Collider2D>();
             foreach (var children in ignoreList)
             {
-                Physics2D.IgnoreCollision(children, tankCollider2D);
+                Physics2D.IgnoreCollision(children, ignoreCreatorTankCollider);
             }
             createdShell.transform.Translate(Vector3.up * posCorrections, Space.Self);
         }
 
         public void AddToIgnore(Collider2D rb)
         {
-            tankCollider2D = rb;
+            ignoreCreatorTankCollider = rb;
         }
     }
 }

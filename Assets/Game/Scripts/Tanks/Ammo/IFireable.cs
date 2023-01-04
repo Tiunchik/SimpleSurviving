@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Game.Scripts.Tanks.Fire
+namespace Game.Scripts.Tanks.Ammo
 {
-    public interface IFire
+    public interface IFireable
     {
         public void Fire();
 

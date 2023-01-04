@@ -1,19 +1,20 @@
 using UnityEngine;
 
-namespace Game.Scripts.Tanks.Turret
+namespace Game.Scripts.Tanks.Turrets
 {
-    public class Turret : MonoBehaviour, ITurret
+    public class TurretBehaviour : MonoBehaviour, ITurret
     {
         public float towerRotationSpeed = 10f;
 
-        private float _currentZAngle;
+        private float currentZAngle;
+        
         
         public void Rotate(float input)
         {
-            _currentZAngle = transform.eulerAngles.z;
-            if (input < _currentZAngle)
+            currentZAngle = transform.eulerAngles.z;
+            if (input < currentZAngle)
             {
-                if (input - _currentZAngle < -180)
+                if (input - currentZAngle < -180)
                 {
                     transform.Rotate(Vector3.forward * (Time.deltaTime * towerRotationSpeed));
                 } 
@@ -24,7 +25,7 @@ namespace Game.Scripts.Tanks.Turret
             }
             else
             {
-                if (input - _currentZAngle > 180)
+                if (input - currentZAngle > 180)
                 {
                     transform.Rotate(Vector3.back * (Time.deltaTime * towerRotationSpeed));
                 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Scripts.Tanks.Turret
+namespace Game.Scripts.Tanks.Turrets
 {
     public interface ITurret
     {

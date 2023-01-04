@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Scripts.Utils;
 using UnityEngine;
 
 /**
@@ -11,6 +12,8 @@ using UnityEngine;
     List<Fire> GetAll<Fire>()
     void Refresh()
     void Start()
+
+    todo - убрать requiredComponents - Get(bool nullable = false) == GetOr(ExceptionOrNull)
 */
 public class TreeComponentStore
 {
@@ -31,7 +34,8 @@ public class TreeComponentStore
     public void Start(GameObject root)
     {
         this.root = root;
-        Utils.walkByComponentTree(root, this.Add);
+        Utils.Copy(new Vector3());
+        Utils.WalkByComponentTree(root, this.Add);
         foreach (var item in requiredComponents ?? Enumerable.Empty<Type>())
             if (!table.ContainsKey(item))
                 throw new Exception($"Component {item} is not present in Tree of GameObject='{root.name}'!");
