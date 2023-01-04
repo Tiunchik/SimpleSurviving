@@ -1,15 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StuckToPlayerTank : MonoBehaviour
 {
 
-    public GameObject playerTank;
+    private GameObject _playerTank;
     public Vector3 offset = new Vector3(0, 0, -20);
-    
+
+
+    private void Start()
+    {
+        _playerTank = GameObject.Find("PlayerTank").gameObject;
+    }
+
     void LateUpdate()
     {
-        transform.position = playerTank.transform.position + offset;
+        if (!_playerTank.IsDestroyed())
+        {
+            transform.position = _playerTank.transform.position + offset;
+        }
+
     }
 }

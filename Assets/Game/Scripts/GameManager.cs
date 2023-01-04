@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Tanks.Fire;
 using Game.Scripts.Tanks.Hull;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -13,11 +14,19 @@ public class GameManager : MonoBehaviour
     public GameObject stopScreen;
 
     private bool _isGameActive = true;
-    
+    private GameObject _player;
+
+    private void Start()
+    {
+        _isGameActive = true;
+        Time.timeScale = 1;
+        _player = GameObject.Find("PlayerTank");
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (_isGameActive && !GameObject.Find("PlayerTank"))
+        if (_isGameActive && _player.IsDestroyed())
         {
             _isGameActive = false;
             stopScreen.SetActive(true);
@@ -30,6 +39,6 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
