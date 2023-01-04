@@ -1,8 +1,9 @@
+using Game.Scripts.Enums;
 using UnityEngine;
 
 namespace Game.Scripts.Tanks.Fire
 {
-    public class FireScipt : MonoBehaviour, IFire
+    public class SimpleFire : MonoBehaviour, IFire
     {
         public GameObject shell;
         public float posCorrections = 1;
@@ -12,7 +13,6 @@ namespace Game.Scripts.Tanks.Fire
         public void Fire()
         {
             var createdShell = Instantiate(shell, transform.position, transform.rotation);
-            Debug.Log("FireScipt::Instantiate(shell)");
             var ignoreList = createdShell.GetComponentsInChildren<Collider2D>();
             foreach (var children in ignoreList)
             {
