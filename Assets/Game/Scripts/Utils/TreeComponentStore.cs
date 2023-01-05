@@ -34,8 +34,8 @@ public class TreeComponentStore
     public void Start(GameObject root)
     {
         this.root = root;
-        Utils.Copy(new Vector3());
-        Utils.WalkByComponentTree(root, this.Add);
+        Util.Copy(new Vector3());
+        Util.WalkByComponentTree(root, this.Add);
         foreach (var item in requiredComponents ?? Enumerable.Empty<Type>())
             if (!table.ContainsKey(item))
                 throw new Exception($"Component {item} is not present in Tree of GameObject='{root.name}'!");
@@ -54,7 +54,7 @@ public class TreeComponentStore
     {
         if (table.TryGetValue(componentType, out List<Component> compList))
             compList.Add(componentObject);
-        else table.Add(componentType, Utils.MutableListOf(componentObject));
+        else table.Add(componentType, Util.MutableListOf(componentObject));
     }
 
 

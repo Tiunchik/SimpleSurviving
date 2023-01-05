@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace Game.Scripts.Utils
 {
-    // outside of package use: using static Game.Scripts.Utils.Utils;
-    public static class Utils
+    public static class Util
     {
         public static Vector3 Copy(Vector3 src, float x = float.NaN, float y = float.NaN, float z = float.NaN)
         => new(
