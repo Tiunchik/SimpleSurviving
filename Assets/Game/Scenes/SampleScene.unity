@@ -807,7 +807,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574866483}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b27a50ee297ec5f4f9b64ebc05ce32d8, type: 3}
   m_Name: 
@@ -1697,6 +1697,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18377880d75f6ec4395df218f7b5e269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeCamera: {fileID: 574866485}
+  activeCameraZoomSize: 8
+  activeCameraZoomStep: 0.5
+  activeCameraZoomMin: 1
+  activeCameraZoomMax: 50
 --- !u!114 &1549036586
 MonoBehaviour:
   m_ObjectHideFlags: 0

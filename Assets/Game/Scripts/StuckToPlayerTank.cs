@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Obsolete("Not used any more. Use PlayerController for main camera")]
 public class StuckToPlayerTank : MonoBehaviour
 {
 
