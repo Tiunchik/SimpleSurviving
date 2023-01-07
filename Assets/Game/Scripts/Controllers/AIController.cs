@@ -14,16 +14,18 @@ public class AIController : MonoBehaviour
         player = GameObject.Find("PlayerTank").gameObject;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        CalculateTurretRotation(player.transform.position);
+        enemyTank.RotateTurretIndus(player.transform.position);
+
+        // CalculateTurretRotation(player.transform.position);
     }
 
-    private void CalculateTurretRotation(Vector3 position)
-    {
-        var angle = Vector2.Angle(position - enemyTank.transform.position, Vector3.up);
-        Debug.Log($"AIController::CalculateTurretRotation() # angle={angle}");
-        angle = position.x < enemyTank.transform.position.x ? angle : 360 - angle;
-        enemyTank.RotateTurret(angle);
-    }
+    // private void CalculateTurretRotation(Vector3 position)
+    // {
+    //     var angle = Vector2.Angle(position - enemyTank.transform.position, Vector3.up);
+    //     // Debug.Log($"AIController::CalculateTurretRotation() # angle={angle}");
+    //     angle = position.x < enemyTank.transform.position.x ? angle : 360 - angle;
+    //     enemyTank.RotateTurret(angle);
+    // }
 }

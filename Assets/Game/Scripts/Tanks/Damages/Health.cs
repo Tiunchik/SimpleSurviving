@@ -12,15 +12,15 @@ namespace Game.Scripts.Tanks.Damages
         {
             if (type == DamageType.KINETIC)
             {
-                health -= (int)(damage * 1.5);
-                Debug.Log($"TAKE KINETIC DAMAGE {health}");
+                health -= (damage = (int)(damage * 1.5));
+                Debug.Log($"Health::TakeDamage # remainingHP={health} # incomeDMG={damage}, DMGType={type}");
             }
             else
             {
                 health -= damage;
-                Debug.Log($"TAKE ANY DAMAGE {health}");
+                Debug.Log($"Health::TakeDamage # remainingHP={health} # incomeDMG={damage}, DMGType={type}");
             }
-            
+
             if (health < 0)
             {
                 Instantiate(destroyAnimation, transform.position, transform.rotation);

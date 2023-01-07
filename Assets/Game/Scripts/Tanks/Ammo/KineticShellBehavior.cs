@@ -5,7 +5,8 @@ namespace Game.Scripts.Tanks.Ammo
 {
     public class KineticShellBehavior : MonoBehaviour
     {
-        public int power = 1;
+        public int baseDamge = 10;
+        public int flySpeed = 10;
         public GameObject boom;
         public DamageType damageType = DamageType.KINETIC;
 
@@ -17,14 +18,14 @@ namespace Game.Scripts.Tanks.Ammo
 
         void Update()
         {
-            transform.Translate(Vector3.up * (power * Time.deltaTime));
+            transform.Translate(Vector3.up * (flySpeed * Time.deltaTime));
         }
 
         private void OnCollisionEnter2D(Collision2D col)
         {
             if (col.gameObject.TryGetComponent(out IDamageable damage))
             {
-                damage.TakeDamage(power, damageType);
+                damage.TakeDamage(baseDamge, damageType);
             }
             Instantiate(boom, transform.position, transform.rotation);
             Destroy(gameObject);
