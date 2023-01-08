@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Game.Scripts.Tanks.Fire;
 using Game.Scripts.Tanks.Hull;
 using Unity.VisualScripting;
+using Game.Scripts.Tanks.Ammo;
+using Game.Scripts.Tanks.Hulls;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;

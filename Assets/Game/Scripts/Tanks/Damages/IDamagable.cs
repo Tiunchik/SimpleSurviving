@@ -1,6 +1,5 @@
-﻿using Game.Scripts.Enums;
-
-namespace Game.Scripts.Tanks.Fire
+﻿
+namespace Game.Scripts.Tanks.Damages
 {
     public interface IDamageable
     {

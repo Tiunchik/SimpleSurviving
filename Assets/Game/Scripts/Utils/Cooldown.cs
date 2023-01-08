@@ -17,6 +17,11 @@ namespace Game.Scripts.Utils
                 PastTime = value;
             }
         }
+
+
+        public Cooldown(float s = 1) => this._s = s;
+
+
         // return value in range(0, 101+)
         public float ProgressPercent { get { return (PastTime / _s) * 100; } }
         // return value in range(100, -0)

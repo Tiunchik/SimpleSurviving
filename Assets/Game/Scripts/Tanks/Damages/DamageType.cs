@@ -1,4 +1,4 @@
-﻿namespace Game.Scripts.Enums
+﻿namespace Game.Scripts.Tanks.Damages
 {
     public enum DamageType
     {

@@ -1,25 +1,26 @@
-﻿using Game.Scripts.Enums;
-using Game.Scripts.Tanks.Fire;
+﻿using Game.Scripts.Tanks.Ammo;
 using UnityEngine;
 
-namespace Game.Scripts.Tanks.Hull
+namespace Game.Scripts.Tanks.Damages
 {
-    public class Health: MonoBehaviour, IDamageable
+    public class Health : MonoBehaviour, IDamageable
     {
         public int health = 100;
         public GameObject destroyAnimation;
+
         public void TakeDamage(int damage, DamageType type)
         {
             if (type == DamageType.KINETIC)
             {
-                health -= (int)(damage * 1.5);
-                Debug.Log($"TAKE KINETIC DAMAGE {health}");
+                health -= (damage = (int)(damage * 1.5));
+                Debug.Log($"Health::TakeDamage # remainingHP={health} # incomeDMG={damage}, DMGType={type}");
             }
             else
             {
                 health -= damage;
-                Debug.Log($"TAKE ANY DAMAGE {health}");
+                Debug.Log($"Health::TakeDamage # remainingHP={health} # incomeDMG={damage}, DMGType={type}");
             }
+
             if (health < 0)
             {
                 Instantiate(destroyAnimation, transform.position, transform.rotation);
@@ -27,9 +28,6 @@ namespace Game.Scripts.Tanks.Hull
             }
         }
 
-        public int GetHealth()
-        {
-            return health;
-        }
+        public int GetHealth() => health;
     }
 }
