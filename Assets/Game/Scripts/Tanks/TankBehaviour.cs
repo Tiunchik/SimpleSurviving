@@ -30,7 +30,7 @@ namespace Game.Scripts.Tanks
         {
             // transform.Translate(Vector3.up * (Time.deltaTime * hull.HullSpeed * input));
 
-            hullRB.velocity = (Vector2)transform.up * input *( hull.moveSpeed)* Time.fixedDeltaTime;
+            hullRB.velocity = (Vector2)transform.up * (input * ( hull.moveSpeed) * Time.fixedDeltaTime);
         }
 
         public void RotateHull(float input)
