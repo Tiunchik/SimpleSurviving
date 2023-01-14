@@ -15,6 +15,8 @@ namespace Game.Scripts.Tanks
         private IFireable fire { get => tcs.Get<IFireable>(); }
 
         private Rigidbody2D hullRB;
+        private float prevForwardInput;
+        // private float prevRotationHullInput;
 
         private void Start()
         {
@@ -31,13 +33,18 @@ namespace Game.Scripts.Tanks
             // transform.Translate(Vector3.up * (Time.deltaTime * hull.HullSpeed * input));
 
             hullRB.velocity = (Vector2)transform.up * (input * ( hull.moveSpeed) * Time.fixedDeltaTime);
+            prevForwardInput = input;
         }
 
         public void RotateHull(float input)
         {
             // transform.Rotate(Vector3.back * (Time.deltaTime * hull.HullRotationSpeed * input));
 
-            hullRB.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -input * hull.rotationSpeed * Time.fixedDeltaTime));
+            // если мы движемся назад, инвертируем силу поворот что бы танк корректно ехал назад.
+            if (prevForwardInput <= 0) input *= -1;
+            var targetRotation = Quaternion.Euler(0, 0, -input * hull.rotationSpeed * Time.fixedDeltaTime);
+            hullRB.MoveRotation(transform.rotation * targetRotation);
+
         }
 
 

@@ -73,3 +73,6 @@ crashlytics-build.properties
 # Exceptions
 !*.dll
 !*.obj
+
+# custom - Unity Editor layout
+/UserSettings/Layouts

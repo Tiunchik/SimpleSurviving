@@ -209,12 +209,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6369486647937288276}
   - component: {fileID: 6369486647937288279}
-  - component: {fileID: 6369486647937288272}
   - component: {fileID: 6369486647937288273}
+  - component: {fileID: 6369486647937288272}
   - component: {fileID: 6369486647937288284}
-  - component: {fileID: 6369486647937288287}
   - component: {fileID: 6369486647937288285}
   - component: {fileID: 6369486647937288282}
+  - component: {fileID: 6369486647937288287}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -292,27 +292,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &6369486647937288272
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6369486647937288278}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 400
-  m_LinearDrag: 2
-  m_AngularDrag: 2
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &6369486647937288273
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -339,6 +318,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8420761, y: 2.4615772}
   m_EdgeRadius: 0
+--- !u!50 &6369486647937288272
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369486647937288278}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 400
+  m_LinearDrag: 2
+  m_AngularDrag: 2
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &6369486647937288284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,25 +351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3392a5ef641b466582f78628317b6293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6369486647937288287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6369486647937288278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18377880d75f6ec4395df218f7b5e269, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeCamera: {fileID: 0}
-  activeCameraZoomSize: 8
-  activeCameraZoomStep: 0.5
-  activeCameraZoomMin: 1
-  activeCameraZoomMax: 30
-  verticalInput: 0
-  horizontalInput: 0
 --- !u!114 &6369486647937288285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +379,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 250
   rotationSpeed: 100
+--- !u!114 &6369486647937288287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369486647937288278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18377880d75f6ec4395df218f7b5e269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeCamera: {fileID: 0}
+  activeCameraZoomSize: 8
+  activeCameraZoomStep: 0.5
+  activeCameraZoomMin: 1
+  activeCameraZoomMax: 30
+  verticalInput: 0
+  horizontalInput: 0
 --- !u!1001 &6369486645927980517
 PrefabInstance:
   m_ObjectHideFlags: 0
