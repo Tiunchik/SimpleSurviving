@@ -20,7 +20,7 @@ namespace Game.Scripts.Tanks
 
         private TankBehaviour myTank { get => GetComponent<TankBehaviour>(); }
         public float verticalInput, horizontalInput;
-        private Vector3 activeCameraAxisxZOffset = new Vector3(0, 0, -100);
+        private Vector3 activeCameraAxisxZOffset = new Vector3(0, 0, -10);
         
         void FixedUpdate()
         {
@@ -76,6 +76,7 @@ namespace Game.Scripts.Tanks
         private void ActiveCameraPosition()
         {
             activeCamera.transform.position = myTank.transform.position + activeCameraAxisxZOffset;
+            // activeCamera.transform.position = myTank.transform.position;
         }
 
         private Vector2 GetMousePositionByActiveCamera() =>

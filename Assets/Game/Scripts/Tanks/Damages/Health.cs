@@ -7,6 +7,7 @@ namespace Game.Scripts.Tanks.Damages
     {
         public int health = 100;
         public GameObject destroyAnimation;
+        public AudioClip destrodAuio;
 
         public void TakeDamage(int damage, DamageType type)
         {
@@ -24,6 +25,7 @@ namespace Game.Scripts.Tanks.Damages
             if (health < 0)
             {
                 Instantiate(destroyAnimation, transform.position, transform.rotation);
+                AudioManager.INST.CreateAudioObject(destrodAuio, this.transform.position, destroyAfter : false);
                 Destroy(gameObject);
             }
         }

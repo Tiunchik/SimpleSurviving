@@ -1,3 +1,4 @@
+using Game.Scripts.Utils;
 using UnityEngine;
 
 namespace Game.Scripts.Tanks.Ammo
@@ -9,11 +10,12 @@ namespace Game.Scripts.Tanks.Ammo
         public float posCorrections = 1;
     
         private Collider2D ignoreCreatorTankCollider;
-        private Utils.Cooldown fireCooldown;
-        // private Utils.CooldownCorotune fireCooldown;
+        private Cooldown fireCooldown;
+        private AudioSource gunShootSound;
 
         private void Start() {
             fireCooldown = new(s: 60 / maxFireRatePerSec);
+            gunShootSound = AudioManager.INST.AddAudioToObject(Audio.WorldSound.SINGLE_GUN_SHOT, this.gameObject);
         }
         private void FixedUpdate() {
             fireCooldown.Update(Time.fixedDeltaTime);
@@ -32,6 +34,8 @@ namespace Game.Scripts.Tanks.Ammo
             createdShell.transform.Translate(Vector3.up * posCorrections, Space.Self);
 
             fireCooldown.Run();
+            // Debug.Log($"audio={gunShootSound.clip}");
+            gunShootSound.Play();
         }
 
         public void AddToIgnore(Collider2D rb)

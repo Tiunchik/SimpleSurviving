@@ -16,7 +16,6 @@ namespace Game.Scripts.Tanks
 
         private Rigidbody2D hullRB;
         private float prevForwardInput;
-        // private float prevRotationHullInput;
 
         private void Start()
         {
@@ -41,7 +40,7 @@ namespace Game.Scripts.Tanks
             // transform.Rotate(Vector3.back * (Time.deltaTime * hull.HullRotationSpeed * input));
 
             // если мы движемся назад, инвертируем силу поворот что бы танк корректно ехал назад.
-            if (prevForwardInput <= 0) input *= -1;
+            if (prevForwardInput < 0) input *= -1;
             var targetRotation = Quaternion.Euler(0, 0, -input * hull.rotationSpeed * Time.fixedDeltaTime);
             hullRB.MoveRotation(transform.rotation * targetRotation);
 

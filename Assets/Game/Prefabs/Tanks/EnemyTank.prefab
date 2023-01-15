@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   destroyAnimation: {fileID: 1032948697324899670, guid: fc55ab868d7f54548ad100a9a4158ff2, type: 3}
+  destrodAuio: {fileID: 8300000, guid: 53fc8733262044943a95e0df10e7dc78, type: 3}
 --- !u!114 &7107213763290475838
 MonoBehaviour:
   m_ObjectHideFlags: 0
