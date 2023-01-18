@@ -7,11 +7,11 @@ namespace Game.Scripts.Tanks.Ammo
     {
         public float maxFireRatePerSec = 60;
         public GameObject shell;
+        public AudioClip gunShootSound;
         public float posCorrections = 1;
     
         private Collider2D ignoreCreatorTankCollider;
         private Cooldown fireCooldown;
-        private AudioSource gunShootSound;
 
         private void Start() {
             fireCooldown = new(s: 60 / maxFireRatePerSec);
@@ -36,7 +36,8 @@ namespace Game.Scripts.Tanks.Ammo
 
             fireCooldown.Run();
             // Debug.Log($"audio={gunShootSound.clip}");
-            gunShootSound.Play();
+            // gunShootSound.Play();
+            Audio.Util.CreateLocalAudioObject(gunShootSound, createdShell.transform.position);
         }
 
         public void AddToIgnore(Collider2D rb)

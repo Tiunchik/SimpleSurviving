@@ -54,16 +54,11 @@ namespace Audio.Lib.Tools
             this.isLoop = isLoop;
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is AudioAssetDefinition definition &&
-                   clipPath == definition.clipPath &&
-                   volume == definition.volume &&
-                   pitch == definition.pitch &&
-                   isLoop == definition.isLoop;
-        }
+        public override bool Equals(object obj) 
+            => obj is AudioAssetDefinition definition && clipPath == definition.clipPath;
 
-        public override int GetHashCode() => HashCode.Combine(clipPath, volume, pitch, isLoop);
+
+        public override int GetHashCode() => clipPath.GetHashCode();
     }
 
     public static class AudioClipLoader
