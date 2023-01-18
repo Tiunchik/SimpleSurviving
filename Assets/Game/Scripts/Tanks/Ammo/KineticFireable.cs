@@ -15,7 +15,8 @@ namespace Game.Scripts.Tanks.Ammo
 
         private void Start() {
             fireCooldown = new(s: 60 / maxFireRatePerSec);
-            gunShootSound = AudioManager.INST.AddAudioToObject(Audio.WorldSound.SINGLE_GUN_SHOT, this.gameObject);
+            // gunShootSound = AudioManager.INST.AddAudioToObject(Audio.WorldSound.SINGLE_GUN_SHOT, this.gameObject);
+            // gunShootSound = AudioManager.INST.AddAudioToObject(Audio.Lib.Music.MAIN_MENU_1, this.gameObject);
         }
         private void FixedUpdate() {
             fireCooldown.Update(Time.fixedDeltaTime);

@@ -1,16 +1,14 @@
-using System;
-using Game.Scripts.Utils;
-
 using UnityEngine;
+using Utils;
 
 namespace Game.Scripts.Tanks
 {
-    /// Глвынй пульт управление от Игрока - все Inputs слушаются и обрабатываются на верхнем уровне здесь.
+    /// Главный пульт управление от Игрока - все Inputs слушаются и обрабатываются на верхнем уровне здесь.
     public class PlayerController : MonoBehaviour
     {
         // обычно mainCamera - но если понадобится Менять камеры.
         // TODO - нарисовывается отдельный API-script для Высокоуровнего управление именно Camera и далее чисто дёргать их API
-        // пока-что, в этом нет потребность - не усложняем без надобпности
+        // пока-что, в этом нет потребность - не усложняем без надобности
         public Camera activeCamera;
         public float
                 activeCameraZoomSize = 8,
@@ -20,8 +18,28 @@ namespace Game.Scripts.Tanks
 
         private TankBehaviour myTank { get => GetComponent<TankBehaviour>(); }
         public float verticalInput, horizontalInput;
-        private Vector3 activeCameraAxisxZOffset = new Vector3(0, 0, -10);
-        
+        private Vector3 activeCameraAxisZOffset = new Vector3(0, 0, -10);
+
+        private void Start()
+        {
+            // var obj = new PlayWorldAudio();
+            // var interfaces = obj.GetType().GetInterfaces().ToList();
+            // var interfacesString = String.Join(',', interfaces); 
+
+            // // Game.Scripts.Tanks.PlayerController+Event
+            // // Game.Scripts.Tanks.PlayerController+AudioEvent
+
+            // Debug.Log($"LOG: GetType():{obj.GetType()}");
+            // Debug.Log($"LOG: interfaces:{interfacesString}");
+            // var one = Resources.Load<AudioClip>(Audio.Music.MAIN_MENU_1.clipPath);
+            // var two = Resources.Load<AudioClip>(Audio.Lib.Music.MAIN_MENU_1.clipPath);
+            // var two = Resources.LoadAsync<AudioClip>(Audio.Music.MAIN_MENU_1.clipPath);
+            // two.completed += a => {
+            //     a.
+            // }
+            // Debug.Log(one == two);
+        }
+
         void FixedUpdate()
         {
             // myTank.DevMove(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
@@ -75,12 +93,12 @@ namespace Game.Scripts.Tanks
 
         private void ActiveCameraPosition()
         {
-            activeCamera.transform.position = myTank.transform.position + activeCameraAxisxZOffset;
+            activeCamera.transform.position = myTank.transform.position + activeCameraAxisZOffset;
             // activeCamera.transform.position = myTank.transform.position;
         }
 
         private Vector2 GetMousePositionByActiveCamera() =>
-            activeCamera.ScreenToWorldPoint(Util.Copy(Input.mousePosition, z: activeCamera.nearClipPlane));
+            activeCamera.ScreenToWorldPoint(Input.mousePosition.Copy(z: activeCamera.nearClipPlane));
 
     }
 }

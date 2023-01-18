@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Scripts.Utils;
 using UnityEngine;
+using Utils;
 
 /**
     constructor()
@@ -34,8 +34,7 @@ public class TreeComponentStore
     public void Start(GameObject root)
     {
         this.root = root;
-        Util.Copy(new Vector3());
-        Util.WalkByComponentTree(root, this.Add);
+        Utils.Other.WalkByComponentTree(root, this.Add);
         foreach (var item in requiredComponents ?? Enumerable.Empty<Type>())
             if (!table.ContainsKey(item))
                 throw new Exception($"Component {item} is not present in Tree of GameObject='{root.name}'!");
@@ -54,7 +53,7 @@ public class TreeComponentStore
     {
         if (table.TryGetValue(componentType, out List<Component> compList))
             compList.Add(componentObject);
-        else table.Add(componentType, Util.MutableListOf(componentObject));
+        else table.Add(componentType, Utils.Other.MutableListOf(componentObject));
     }
 
 

@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
-namespace Game.Scripts.Utils
+namespace Utils
 {
-    public static class Util
+    public static class Other
     {
-        public static Vector3 Copy(Vector3 src, float x = float.NaN, float y = float.NaN, float z = float.NaN)
+        public static Vector3 Copy(this Vector3 src, float x = float.NaN, float y = float.NaN, float z = float.NaN)
         => new(
             (float.IsNaN(x)) ? src.x : x,
             (float.IsNaN(y)) ? src.y : y,
@@ -29,7 +31,7 @@ namespace Game.Scripts.Utils
             {
                 var curr = queue.Dequeue();
                 if (curr.TryGetComponent<T>(out T component)) return component;
-                GetAllChilds(curr).ForEach(queue.Enqueue);
+                GetAllChildren(curr).ForEach(queue.Enqueue);
             }
             return default(T);
         }
@@ -44,26 +46,26 @@ namespace Game.Scripts.Utils
                 var curr = queue.Dequeue();
                 var obj = curr.gameObject;
                 if (predicate.Invoke(obj)) return obj;
-                GetAllChilds(curr).ForEach(queue.Enqueue);
+                GetAllChildren(curr).ForEach(queue.Enqueue);
             }
             return null;
         }
 
 
         // https://answers.unity.com/questions/594210/get-all-children-gameobjects.html
-        public static List<Transform> GetAllChilds(Transform root)
+        public static List<Transform> GetAllChildren(Transform root)
         {
             List<Transform> ts = new List<Transform>();
             foreach (Transform t in root)
             {
                 ts.Add(t);
-                if (t.childCount > 0) ts.AddRange(GetAllChilds(t));
+                if (t.childCount > 0) ts.AddRange(GetAllChildren(t));
             }
             return ts;
         }
 
         // https://answers.unity.com/questions/594210/get-all-children-gameobjects.html
-        public static List<GameObject> GetAllChilds(GameObject root)
+        public static List<GameObject> GetAllChildren(GameObject root)
         {
             List<GameObject> list = new List<GameObject>();
             for (int i = 0; i < root.transform.childCount; i++)
@@ -95,23 +97,31 @@ namespace Game.Scripts.Utils
         }
 
     }
-    public static class UtilsReflection
+
+// todo - extension like Kotlin|Java - Map.computeIfAbsent(...)
+    public static class Dictionary {
+        public static V computeIfAbsent<K,V>(this Dictionary<K, V> context, K key, Func<K, V> valueGetter) {
+            if(context.TryGetValue(key, out V rsl)) 
+                return rsl;
+            else return (context[key] = valueGetter(key));
+        }
+    }
+    public static class Reflection
     {
 
-        /// something like Java cast...
-
-        // public static T Convert<T>(object initialValue) => Convert<T>(initialValue);
-        // public static T Convert<T>(object initialValue, T convertToType)
+        // public static Dictionary<string, string> GetFieldValues(object obj)
         // {
-        //     Type targetType = (convertToType is Type) ? convertToType as Type : typeof(T);
-        //     Type initialType = (initialValue != null) ? initialValue.GetType() : null;
-
-        //     var converter = System.ComponentModel.TypeDescriptor.GetConverter(targetType);
-
-        //     if (converter == null || !converter.CanConvertFrom(initialType))
-        //         throw new ApplicationException(string.Format("Could not convert from {0} to {1}", initialType, targetType));
-
-        //     return (T)converter.ConvertFrom(initialValue);
+        //     return obj.GetType()
+        //               .GetFields(BindingFlags.Public | BindingFlags.Static)
+        //               .Where(f => f.FieldType == typeof(string))
+        //               .ToDictionary(f => f.Name,
+        //                             f => (string)f.GetValue(null));
         // }
+
+        public static Dictionary<string, T> GetAllStaticConstsForClassByType<T>(Type clazz)
+            => clazz
+                    .GetFields(BindingFlags.Public | BindingFlags.Static)
+                    .Where(f => f.FieldType == typeof(T))
+                    .ToDictionary(f => f.Name, f => (T)f.GetValue(null));
     }
 }
