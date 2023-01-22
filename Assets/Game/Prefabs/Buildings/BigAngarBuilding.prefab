@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8552785922056933660}
   - component: {fileID: 1216078023741706223}
   - component: {fileID: 8811491529764677688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BigAngarBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}

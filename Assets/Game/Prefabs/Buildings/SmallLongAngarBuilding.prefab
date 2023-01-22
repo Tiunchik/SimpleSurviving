@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 760749749018811753}
   - component: {fileID: 9058938605625844425}
   - component: {fileID: 2403154775918967134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SmallLongAngarBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}

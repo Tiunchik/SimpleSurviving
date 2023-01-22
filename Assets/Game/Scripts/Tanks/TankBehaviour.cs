@@ -41,9 +41,8 @@ namespace Game.Scripts.Tanks
 
             // если мы движемся назад, инвертируем силу поворот что бы танк корректно ехал назад.
             if (prevForwardInput < 0) input *= -1;
-            var targetRotation = Quaternion.Euler(0, 0, -input * hull.rotationSpeed * Time.fixedDeltaTime);
-            hullRB.MoveRotation(transform.rotation * targetRotation);
-
+             var targetRotation = Quaternion.Euler(0, 0, -input * hull.rotationSpeed * Time.fixedDeltaTime);
+             hullRB.MoveRotation(transform.rotation * targetRotation);
         }
 
 

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 17
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 0f3f90fddb49b3d47af8b5a771c08401, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 17
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 1ecaa389294661246944a234da760900, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxFireRatePerSec: 120
   shell: {fileID: 6427546505957280926, guid: 9e74f9258bb9b9d43b148fc81264a5cb, type: 3}
+  gunShootSound: {fileID: 0}
   posCorrections: 0.45
 --- !u!1 &6369486647937288278
 GameObject:
@@ -280,7 +281,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 16
+  m_SortingOrder: 17
   m_Sprite: {fileID: 21300000, guid: 261d018a154394842b1846f08cb3a1ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -365,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   destroyAnimation: {fileID: 1032948697324899670, guid: fc55ab868d7f54548ad100a9a4158ff2, type: 3}
+  destroyAudio: {fileID: 0}
 --- !u!114 &6369486647937288282
 MonoBehaviour:
   m_ObjectHideFlags: 0

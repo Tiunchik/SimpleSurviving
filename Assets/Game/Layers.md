@@ -3,8 +3,9 @@
 - roads - 10
 - trucks - 15
 - hulls - 16
-- obstacles -16
-- turret and guns - 17
+- playerHulls - 17
+- obstacles - 18
+- turret and guns - 20
 - buildings - 25
 - shells - 30
 - hide places (grass) - 35

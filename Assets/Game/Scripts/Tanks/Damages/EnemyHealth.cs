@@ -3,8 +3,9 @@ using UnityEngine;
 
 namespace Game.Scripts.Tanks.Damages
 {
-    public class Health : MonoBehaviour, IDamageable
+    public class EnemyHealth : MonoBehaviour, IDamageable
     {
+        public GameObject aiBlockOfGameObjects;
         public int health = 100;
         public GameObject destroyAnimation;
         public AudioClip destroyAudio;
@@ -21,19 +22,8 @@ namespace Game.Scripts.Tanks.Damages
             if (health < 0)
             {
                 var destroyAnimationObj = Instantiate(destroyAnimation, transform.position, transform.rotation);
-                // if (destroyAudio != null) 
-                // Audio.Util.AddAudioToObject(destroyAudio, destroyAnimationObj);
                 Audio.Util.CreateLocalAudioObject(destroyAudio, transform.position);
-                Destroy(gameObject);
-                // // var t = new Audio.Event().PlayMainMenuTheme = new UnityEvent<WorldAudioAssetDefinition>();
-                // var listener = (temp) =>{};
-                // Audio.Event.PlayMainMenuTheme.AddListener(listener);
-                // // Audio.Event.PlayMainMenuTheme.AddListener((temp) =>{});
-                // Audio.Event.PlayMainMenuTheme.RemoveListener(listener);
-
-                // Audio.Event.PlayMainMenuTheme.Invoke(null);
-
-                // Audio.Event.MainTheme.Play.Invoke(null);
+                Destroy(aiBlockOfGameObjects);
             }
         }
 

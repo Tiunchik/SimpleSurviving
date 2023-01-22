@@ -17,7 +17,7 @@ public class PatrolAIBehavior : AIBehavior
     [SerializeField] private bool isWaiting = false;
     [SerializeField] Vector2 currentTargetPoint = Vector2.zero;
 
-    private TankBehaviour enemyTank;
+    public TankBehaviour enemyTank;
 
     private bool isInitialized = false;
 

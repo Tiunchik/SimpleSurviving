@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1833947007006940099}
   - component: {fileID: 6734678975568826332}
   - component: {fileID: 3281730935126380180}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 16
+  m_SortingOrder: 18
   m_Sprite: {fileID: 21300000, guid: c77307aa37058844ea3a7a84472cd113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

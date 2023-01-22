@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4350705855503824319}
   - component: {fileID: 530302885724388688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HideLongGrassBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

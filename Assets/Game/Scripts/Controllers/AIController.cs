@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.ai;
@@ -7,11 +8,26 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    [SerializeField]
-    private AIBehavior behavior;
+    public AIBehavior patrolBehavior;
+    public AIBehavior turretBehavior;
+    public AIDetector detector;
+    public GameObject enemyTank;
+    private void Start()
+    {
+        detector = GetComponentInChildren<AIDetector>();
+    }
 
     void Update()
     {
-        behavior.PerformAction(gameObject);
+        if (detector.TargetVisible)
+        {
+            turretBehavior.PerformAction(detector.Target.gameObject);
+        }
+        else if (!detector.TargetVisible)
+        {
+            patrolBehavior.PerformAction(gameObject);
+            turretBehavior.PerformAction(null);
+        }
+
     }
 }
