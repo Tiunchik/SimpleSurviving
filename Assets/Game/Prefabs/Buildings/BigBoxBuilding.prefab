@@ -89,6 +89,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftSmallPart
       objectReference: {fileID: 0}
+    - target: {fileID: 5946583618995161872, guid: 4b521835858f7a545a09ecd35ea28b3c, type: 3}
+      propertyPath: m_Carve
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b521835858f7a545a09ecd35ea28b3c, type: 3}
 --- !u!4 &832055222554508889 stripped
